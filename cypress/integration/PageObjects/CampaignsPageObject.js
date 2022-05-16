@@ -112,6 +112,12 @@ class CampaignsPageObject
 
     }
 
+    repeatableText2()
+    {
+        return cy.get(':nth-child(8) > label')
+
+    }
+
     addNewCampaign2()
     {
         return cy.get('[href="/campaigns/new"]')

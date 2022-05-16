@@ -185,6 +185,73 @@ describe('Test Campaigns Page as a logged-in user', () => {
     })
 
 
+    //EDIT CAMPAIGN
+
+    it(['SmokeTests', 'Tags'], 'Edit Added Campaign using One time option', () => {
+
+        campaign.clickOnCampaigns()
+            .should('have.text', 'Campaigns')
+        campaign.clickOnCampaigns().click()
+
+        campaign.isAtCampaignPage()
+            .should('have.text', 'Campaigns')
+        campaign.editCampaignButton()
+            .should('have.text', 'Edit')
+            .click()
+        campaign.isAtAddCampaignForm().should('be.visible')
+
+        campaign.editCampaignNameInput().clear()
+        campaign.editCampaignNameInput().type(this.data.editedName)
+            .should('have.value', this.data.editedName)
+
+        campaign.editCampaignDescInput().clear()
+        campaign.editCampaignDescInput().type(this.data.editedDescription)
+            .should('have.value', this.data.editedDescription)
+
+        campaign.oneTimeOption2().click()
+        campaign.oneTimeText2()
+            .should('have.text', '\n        \n        One time\n      ')
+        campaign.createCampaignButton().click()
+
+        campaign.campaignIsUpdated()
+            .should('have.text', 'Campaign was successfully updated.')
+
+
+    })
+
+    it(['SmokeTests', 'Tags'], 'Edit Added Campaign using Repeatable option', () => {
+
+        campaign.clickOnCampaigns()
+            .should('have.text', 'Campaigns')
+        campaign.clickOnCampaigns().click()
+
+        campaign.isAtCampaignPage()
+            .should('have.text', 'Campaigns')
+        campaign.editCampaignButton()
+            .should('have.text', 'Edit')
+            .click()
+        campaign.isAtAddCampaignForm().should('be.visible')
+
+        campaign.editCampaignNameInput().clear()
+        campaign.editCampaignNameInput().type(this.data.name2)
+            .should('have.value', this.data.name2)
+
+        campaign.editCampaignDescInput().clear()
+        campaign.editCampaignDescInput().type(this.data.description2)
+            .should('have.value', this.data.description2)
+
+        campaign.repeatableOption2().click()
+        campaign.repeatableText2()
+            .should('have.text', '\n        \n        Repeatable\n      ')
+        campaign.createCampaignButton().click()
+
+        campaign.campaignIsUpdated()
+            .should('have.text', 'Campaign was successfully updated.')
+
+
+    })
+
+
 })
 
 
