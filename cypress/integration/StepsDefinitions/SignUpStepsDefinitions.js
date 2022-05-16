@@ -62,11 +62,11 @@ describe('Test Sign Up', () => {
 
         signUp.clickSignIn().
         should('have.text', 'Sign In')
+            .click()
 
         signUp.signUpLink().
         should('have.text', 'Sign up')
-
-        signUp.signUpLink().click()
+            .click()
 
         signUp.isAtSignUpPage()
             .should('be.visible')
