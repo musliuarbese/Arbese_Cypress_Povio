@@ -1,0 +1,12 @@
+{
+  "name": "campaignTest",
+  "description": "Testing the fourth requirement",
+  "name2": "name of campaign",
+  "description2": "Testing repeatable option",
+  "name3": "3",
+  "description3": "33",
+  "name4": "44",
+  "description4": "44",
+  "editedName": "campaign2",
+  "editedDescription": "Testing the edit Campaign Scenario"
+}

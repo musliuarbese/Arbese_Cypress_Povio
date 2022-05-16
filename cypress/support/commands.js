@@ -5,21 +5,18 @@
 // import 'cypress-file-upload';
 
 
-Cypress.Commands.add("signUp", (username, password) => {
-    cy.get('.mr-3 > .HeaderMenu-link').click()
-    cy.get('h1').should('have.text', 'Sign in to GitHub')
-    cy.get('#login_field').type(username)
-    cy.get('#password').type(password)
-    cy.get('.btn').click()
+Cypress.Commands.add("signIn", (email, password) => {
+    cy.get('.nav > :nth-child(1) > a').should('have.text', 'Sign in')
+    cy.get('.nav > :nth-child(1) > a').click()
+    cy.get('#new_user').should('be.visible')
+    cy.get('#user_email').type(email)
+        .should('have.value', email)
+    cy.get('#user_password').type(password)
+        .should('have.value', password)
+    cy.get('#user_remember_me').click()
+    cy.get('.button').click()
+    cy.get('#flash_notice').should('have.text', 'Signed in successfully.')
 })
-
-Cypress.Commands.add("loginBMS", (username, password) => {
-    cy.get('.title-font').should('contain', 'QA Detroit Client')
-    cy.get('input[name="email"]').type(username)
-    cy.get('input[name="password"]').type(password)
-    cy.get('button[type="submit"]').click()
-})
-
 
 
 //
