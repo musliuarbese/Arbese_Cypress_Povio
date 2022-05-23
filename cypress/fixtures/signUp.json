@@ -2,5 +2,6 @@
   "userName": "Test",
   "email": "userTest@test.com",
   "password": "Povio@123",
-  "passwordConfirm": "Povio@123"
+  "passwordConfirm": "Povio@123",
+  "email2": "user111@test.com"
 }

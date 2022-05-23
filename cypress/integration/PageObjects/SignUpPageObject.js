@@ -61,6 +61,11 @@ class SignUpPageObject
         return cy.get(':nth-child(4) > .right')
     }
 
+    signOut()
+    {
+        return cy.contains('Sign out')
+    }
+
 }
 
 export default SignUpPageObject;

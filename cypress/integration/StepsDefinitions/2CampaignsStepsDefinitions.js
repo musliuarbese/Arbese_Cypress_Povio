@@ -1,5 +1,6 @@
 // import 'cypress-file-upload';
 import CampaignsPageObject from "../PageObjects/CampaignsPageObject.js";
+import SignUpPageObject from "../PageObjects/SignUpPageObject";
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -10,6 +11,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 const campaign = new CampaignsPageObject()
+const signUp = new SignUpPageObject()
 
 beforeEach(() => {
 
@@ -17,7 +19,7 @@ beforeEach(() => {
         this.data = data;
     })
     cy.visit('https://povio-at.herokuapp.com/')
-    cy.signIn('userTest@test.com', 'Povio@123')
+
 
 })
 
@@ -150,7 +152,6 @@ describe('Test Campaigns Page as a logged-in user', () => {
     })
 
     it(['SmokeTests', 'Tags'], 'Destroy added Campaigns', () => {
-
         campaign.clickOnCampaigns()
             .should('have.text', 'Campaigns')
         campaign.clickOnCampaigns().click()
@@ -250,6 +251,26 @@ describe('Test Campaigns Page as a logged-in user', () => {
 
 
     })
+
+
+    it(['SmokeTests', 'Tags'], 'Destroy after edited Campaigns', () => {
+        campaign.clickOnCampaigns()
+            .should('have.text', 'Campaigns')
+        campaign.clickOnCampaigns().click()
+
+        campaign.isAtCampaignPage()
+            .should('have.text', 'Campaigns')
+
+        campaign.firstDestroyCampaigneButton().
+        should('have.text', 'Destroy')
+            .click()
+
+        campaign.campaignIsDestroyed()
+            .should('have.text', 'Campaign was successfully destroyed.')
+
+
+    })
+
 
 
 })

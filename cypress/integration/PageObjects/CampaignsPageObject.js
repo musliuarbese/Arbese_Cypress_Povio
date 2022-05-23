@@ -123,6 +123,10 @@ class CampaignsPageObject
         return cy.get('[href="/campaigns/new"]')
     }
 
+    firstDestroyCampaigneButton()
+    {
+        return cy.get(':nth-child(4) > a')
+    }
 }
 
 export default CampaignsPageObject;
